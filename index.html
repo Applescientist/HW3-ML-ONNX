@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HW3 - Medical ML models with ONNX</title>
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+  <script src="index.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table, th, td { border: 1px solid; border-collapse: collapse; padding: 4px; }
+    h1 { color: green; text-align: center; }
+    #leftbox  { float: left; width: 48%; }
+    #rightbox { float: right; width: 48%; }
+    .grid { columns: 2; }
+    .note { color: #a00; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>HW3 - Diabetes Regression and Breast Cancer Classification (PyTorch + ONNX)</h1>
+  <p class="note">Student class project. The predictions are NOT medical advice.</p>
+
+  <div id="leftbox">
+    <h2>Regression: diabetes progression after 1 year</h2>
+    <input type="text" id="r0" value="59"> age (years)<br/>
+    <input type="text" id="r1" value="2"> sex (1 or 2, as coded in the dataset)<br/>
+    <input type="text" id="r2" value="32.1"> bmi (body mass index)<br/>
+    <input type="text" id="r3" value="101"> bp (average blood pressure)<br/>
+    <input type="text" id="r4" value="157"> s1 (total serum cholesterol)<br/>
+    <input type="text" id="r5" value="93.2"> s2 (LDL)<br/>
+    <input type="text" id="r6" value="38"> s3 (HDL)<br/>
+    <input type="text" id="r7" value="4"> s4 (total cholesterol / HDL)<br/>
+    <input type="text" id="r8" value="4.8598"> s5 (log of triglycerides)<br/>
+    <input type="text" id="r9" value="87"> s6 (blood sugar)<br/>
+    <div><input style="background-color:yellow" type="button" value="Run" onclick="runRegression()"/></div>
+    <div id="predictionsReg"></div>
+  </div>
+
+  <div id="rightbox">
+    <h2>Classification: malignant or benign tumor</h2>
+    <input style="background-color:lightblue" type="button" value="Load example 1 (real: malignant)" onclick="loadExample(0)"/>
+    <input style="background-color:lightblue" type="button" value="Load example 2 (real: benign)" onclick="loadExample(1)"/>
+    <div class="grid" id="classInputs"></div>
+    <div><input style="background-color:yellow" type="button" value="Run" onclick="runClassification()"/></div>
+    <div id="predictionsClass"></div>
+  </div>
+</body>
+</html>
+
